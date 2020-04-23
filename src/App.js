@@ -11,6 +11,8 @@ const App = () => {
     { id: 2, name: "Bottle" }
   ])
 
+  const [namecollect, setNameCollect] = useState('')
+
   useEffect( ()=> {
     retriveData()
   } ,[])
@@ -41,10 +43,17 @@ const App = () => {
       return (<li> No Task </li>)
   }
   
+  const addCollect = () => {
+    let id = (collects.length === 0) ? 1 : collects[collects.length - 1].id + 1
+    firestore.collection("collects").doc(id + '').set({ id, name })
+}
+
   return (
   <div  >
       <Nav />
      <h1 > My Collection </h1>
+     <input type="text" name="name" onChange={ (e) => {setNameCollect(e.target.value)}} />
+     <button onClick={ addCollect } > Add </button>
      <ul >{renderCollect()}</ul>
     </div>
   );
