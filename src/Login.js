@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 // import { Link } from 'react-router-dom';
 import firebase from "./firebase/config";
+import './App.css';
 
 const Login = (props) => {
 
@@ -51,19 +52,21 @@ const Login = (props) => {
   return (
 
     <form className='App-header2' >
-      <h1> LOGIN </h1>
+      <p className='Log'> SIGN IN or SIGN UP </p>
       <div className='from-group'>
 
-        <label className='App-Log'> Name </label>
-        <input type='email' className='form-control' name="email" onChange={(e) => setDataUser({ ...datauser, email: e.target.value })} placeholder="Email" />
+        <label className='App-Log'> Email </label>
+        <input style={{width: 400}} type='email' className='form-control' name="email"
+          onChange={(e) => setDataUser({ ...datauser, email: e.target.value })} placeholder="Email" />
 
         <label className='App-Log'> Password </label>
-        <input type='password' className='form-control' name="password" onChange={(e) => setDataUser({ ...datauser, password: e.target.value })} placeholder="Password" />
+        <input style={{width: 400}} type='password' className='form-control' name="password"
+          onChange={(e) => setDataUser({ ...datauser, password: e.target.value })} placeholder="Password" />
         <p> {message}</p>
-        <button class="btn btn-success" onClick={onSubmit}>Sign In</button>
-        <button class="btn btn-light" onClick={onSignUp}>Sign Up</button>
-        {/* 
-        <Link className='nav-link' to='/'> Home </Link> */}
+        <div className='container'> 
+        <button className='Sn'  onClick={onSubmit}>Sign In</button>
+        <button className='Su'  onClick={onSignUp}>Sign Up</button>
+        </div>
       </div>
     </form >
 
