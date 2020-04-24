@@ -1,8 +1,9 @@
 
-import React , { useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Nav from './Nav';
-import {firestore} from './index'
+import { firestore } from './index'
+import Collect from './Collect';
 
 const App = () => {
 
@@ -11,11 +12,11 @@ const App = () => {
     { id: 2, name: "Bottle" }
   ])
 
-  const [namecollect, setNameCollect] = useState('')
+  const [name, setName] = useState('')
 
-  useEffect( ()=> {
+  useEffect(() => {
     retriveData()
-  } ,[])
+  }, [])
 
   const retriveData = () => {
     firestore.collection("collects").onSnapshot((snapshot) => {
@@ -29,32 +30,45 @@ const App = () => {
     })
   }
 
+
   const renderCollect = () => {
     if (collects && collects.length)
       return collects.map((collect, index) => {
         return (
-          <li key={index}>
-            {collect.id} : {collect.name}
-          </li>
-          
+          <Collect key={index} collect={collect}
+            deleteCollect={deleteCollect}
+            editCollect={editCollect}
+          />
         )
       })
     else
-      return (<li> No Task </li>)
+      return (<li> No Collection </li>)
   }
-  
+
   const addCollect = () => {
     let id = (collects.length === 0) ? 1 : collects[collects.length - 1].id + 1
     firestore.collection("collects").doc(id + '').set({ id, name })
-}
+  }
+
+  const deleteCollect = (id) => {
+    firestore.collection("collects").doc(id + '').delete()
+  }
+
+
+  const editCollect = (id) => {
+    firestore.collection("collects").doc(id + '').set({ id, name })
+  }
 
   return (
-  <div  >
+    <div>
       <Nav />
-     <h1 > My Collection </h1>
-     <input type="text" name="name" onChange={ (e) => {setNameCollect(e.target.value)}} />
-     <button onClick={ addCollect } > Add </button>
-     <ul >{renderCollect()}</ul>
+      <div className='App-header' >
+
+        <h1 className='H1' > My Collection </h1>
+        <input className='Input-App' type="text" name="name" onChange={(e) => setName(e.target.value)} />
+        <button className='Button' onClick={addCollect}> AddCollect </button>
+        <ul style={{ display: 'flex', listStyle: 'none' }}>{renderCollect()}</ul>
+      </div>
     </div>
   );
 }
