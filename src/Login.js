@@ -37,12 +37,10 @@ const Login = (props) => {
 
   const onSignUp = (event) => {
     event.preventDefault();
-    // console.log("test");
     firebase
       .auth()
       .createUserWithEmailAndPassword(datauser.email, datauser.password)
       .then(response => {
-        // props.history.push("/");
       })
       .catch(error => {
         setMessage(error.message)

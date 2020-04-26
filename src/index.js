@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Routes from './Routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/firestore'
 import config from './firebase/config'
 
