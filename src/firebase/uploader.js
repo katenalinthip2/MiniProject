@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import { firebase } from './config'
-
 const Uploader = () => {
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState('')
     const [progress, setProgress] = useState(0)
     const [error, setError] = useState('')
-
-
     const handChange = e => {
         const file = e.target.files[0];
         if (file) {
             const fileType = file['type']
-            const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-
+            const validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
             if (validImageTypes.includes(fileType)) {
-                setError('err')
+                setError('Please click Button "Upload" before click Button "AddCollection"')
                 setImage(file)
             }
             else {
                 console.log("error");
-                setError('Pleaseselect an image to upload')
+                setError('Please select an image to upload')
             }
         }
     }
-
     const handleUpload = () => {
         if (image != null) {
             const uploadTask = firebase.storage().ref(`images/${image.name}`).put(image)
@@ -45,7 +40,6 @@ const Uploader = () => {
                         setUrl(url);
                         localStorage.setItem('url',url)
                         setProgress(0)
-                        
                     })
                 }
             )
@@ -53,21 +47,14 @@ const Uploader = () => {
             setError('err')
         }
     }
-
-
-
     return (
         <div>
             <input type='file' onChange={handChange} /> {''}
             <button onClick={handleUpload}> upload</button>
-
-
-
             <div style={{ height: '100px' }} >
                 {progress > 0 ? <progress value={progress} max="100" /> : ""}
                 <p style={{ color: 'red', }}> {error} </p>
             </div> </div>
     )
 }
-
 export default Uploader;
