@@ -1,15 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Nav from './Nav';
 import { firestore } from './index'
 import Collect from './Collect';
+import Uploader from './firebase/uploader'
 
 const App = () => {
 
   const [collects, setCollects] = useState([
-    { id: 1, name: "Glass" },
-    { id: 2, name: "Bottle" }
+    
   ])
 
   const [name, setName] = useState('')
@@ -42,12 +41,13 @@ const App = () => {
         )
       })
     else
-      return (<li> No Collection </li>)
+      return (<div className='No'> No Collection </div>)
   }
 
   const addCollect = () => {
     let id = (collects.length === 0) ? 1 : collects[collects.length - 1].id + 1
-    firestore.collection("collects").doc(id + '').set({ id, name })
+    let url = localStorage.getItem("url")
+    firestore.collection("collects").doc(id + '').set({ id, name, url })
   }
 
   const deleteCollect = (id) => {
@@ -59,6 +59,7 @@ const App = () => {
     firestore.collection("collects").doc(id + '').set({ id, name })
   }
 
+
   return (
     <div>
       <Nav />
@@ -67,7 +68,9 @@ const App = () => {
         <h1 className='H1' > My Collection </h1>
         <input className='Input-App' type="text" name="name" onChange={(e) => setName(e.target.value)} />
         <button className='Button' onClick={addCollect}> AddCollect </button>
+        <Uploader />
         <ul style={{ display: 'flex', listStyle: 'none' }}>{renderCollect()}</ul>
+        
       </div>
     </div>
   );
