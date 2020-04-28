@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 // import { Link } from 'react-router-dom';
-import firebase from "./firebase/config";
+import {firebase} from "./firebase/config";
 import './App.css';
-
 const Login = (props) => {
-
   const [datauser, setDataUser] = useState({
     email: "",
     password: ""
   })
-
   const [message, setMessage] = useState('')
-
   // useEffect = () => {
   //   auth.onAuthStateChanged(user => {
   //     if (user) {
@@ -20,7 +16,6 @@ const Login = (props) => {
   //     }
   //   });
   // }
-
   const onSubmit = (event) => {
     event.preventDefault();
     console.log("test");
@@ -34,7 +29,6 @@ const Login = (props) => {
         setMessage(error.message)
       })
   }
-
   const onSignUp = (event) => {
     event.preventDefault();
     firebase
@@ -46,17 +40,13 @@ const Login = (props) => {
         setMessage(error.message)
       })
   }
-
   return (
-
     <form className='App-header2' >
       <p className='Log'> SIGN IN or SIGN UP </p>
       <div className='from-group'>
-
         <label className='App-Log'> Email </label>
         <input style={{width: 400}} type='email' className='form-control' name="email"
           onChange={(e) => setDataUser({ ...datauser, email: e.target.value })} placeholder="Email" />
-
         <label className='App-Log'> Password </label>
         <input style={{width: 400}} type='password' className='form-control' name="password"
           onChange={(e) => setDataUser({ ...datauser, password: e.target.value })} placeholder="Password" />
@@ -67,8 +57,6 @@ const Login = (props) => {
         </div>
       </div>
     </form >
-
   );
 }
-
 export default Login;
