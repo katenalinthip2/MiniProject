@@ -49,9 +49,9 @@ const Uploader = () => {
     }
     return (
         <div>
-            <input type='file' onChange={handChange} /> {''}
-            <button onClick={handleUpload}> upload</button>
-            <div style={{ height: '100px' }} >
+            <input className='file' type='file' onChange={handChange} /> {''}
+            <button className='upload'  onClick={handleUpload}> Upload</button>
+            <div style={{ height: '10px'}} >
                 {progress > 0 ? <progress value={progress} max="100" /> : ""}
                 <p style={{ color: 'red', }}> {error} </p>
             </div> </div>
