@@ -1,31 +1,35 @@
-import React, { Component } from 'react';
+import React, {useState } from 'react';
 import './Count.css';
-
-class Count extends Component {
- state = { count:0}
- constructor(props) {
-   super(props)
-   this.add = this.add.bind(this)
-   this.minus = this.minus.bind(this)
- }
-
- add = function() {
-   this.setState({count:this.state.count+1})
- }
- minus = function() {
-    this.setState({count:this.state.count-1})
-  }
-
- render() {
+import { firestore } from './index'
+const Count = (props) => {
+  const {collect} = props
+  const {id, name, url, count} = collect
+  // const [count, setCount] = useState(0)
+    const add = () => {
+      firestore.collection("collects").doc(id + '')
+        .set({
+          id: id,
+          name: name,
+          url: url,
+          count: (count + 1)
+        })
+    }
+    const minus = () => {
+      firestore.collection("collects").doc(id + '')
+        .set({
+          id: id,
+          name: name,
+          url: url,
+          count: (count -1)
+        })
+    }
    return (
        <div> 
-    <h6 className='num'> Number of pieces : {this.state.count} </h6>
+    <h6 className='num'> Number of pieces : {count} </h6>
      <div className='count'>  
-        <button className='add ' onClick={this.add}> + </button>
-        <button className='add 'onClick={this.minus}> - </button>
-        
+        <button className='add ' onClick={add}> + </button>
+        <button className='add 'onClick={minus}> - </button>
      </div></div>
    );
- }
 }
 export default Count;

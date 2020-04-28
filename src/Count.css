@@ -40,3 +40,21 @@
     justify-content: flex-end;
     
 }
+
+.img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 1em; */
+  margin-left: 1ex;
+  margin-right: 1ex;
+  border: 1px solid lightseagreen;
+  border-radius: 4px;
+  width: auto;
+  max-height: 280px;
+  overflow: auto;
+  vertical-align: middle;
+  margin: 10px 20px;
+  
+}

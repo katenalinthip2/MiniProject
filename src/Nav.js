@@ -5,10 +5,12 @@ import './App.css';
 const Nav = () => {
     return (
 
-        <div class='App-Log'>
-            <div className="nav-tabs bg-dark" style={{ display: "flex", flexDirection: 'row' }}>
+        <div >
+            <div className="navbar navbar-expand-lg navbar-light bg-light" >
                 <Link className='nav-link' to='/'> Home </Link>
+                <Link className='nav-link' to='/Collects'> MyCollect </Link>
                 <Link className='nav-link' to='/Login'> Login </Link>
+                
             </div>
         </div>
     )

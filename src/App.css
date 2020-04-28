@@ -6,6 +6,48 @@
   display: flex;
   color: white;
 }
+.home {
+  /* background-color: transparent; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-image: url(../src/img/bg3.jpg) ;
+  background-position: center;
+  background-size: 100%;
+  background-image: linear-gradient(to bottom, rgba(119, 119, 119, 0.678) 0%,rgba(73, 73, 73, 0.603) 100%), url(../src/img/bg3.jpg);
+ }
+ .home-button:link, .home-button:visited {
+   margin-top: 1%;
+   border-radius: 20px;
+   background-color: rgba(255, 196, 0, 0.801);
+   color: rgb(5, 0, 0);
+   font-family: monospace;
+   min-height: 2em;
+   width: 7em;
+   height: 2em;
+   border: 1px solid lightseagreen;
+   font-style: oblique;
+   font-size: 20px;
+   font-weight: 600;
+   align-items: center;
+   text-align: center;
+   text-decoration:none;
+   padding-top: 4px;
+   
+ }
+ .home-button:hover, .home-button:active {
+  background-color: rgba(255, 243, 75, 0.973);
+}
+
+ 
+ .home p{
+   margin-top: 12%;
+   font-size: 500%;
+   font-family: monospace;
+   font-style: oblique;
+ }
 
 .App-header {
   background-color: #282c34;
@@ -14,13 +56,14 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  background-image: url(../src/img/wh.jpeg) ;
+  background-image: linear-gradient(to bottom, rgba(107, 107, 107, 0.76) 0%,rgba(129, 129, 129, 0.541) 70%), url(../src/img/wh.jpeg);
+  background-position: center;
+  background-size: 100%;
   
 }
 
 
-.App-link {
-  color: #61dafb;
-}
 
 .Log {
   
@@ -56,19 +99,20 @@
 
 .Button {
   background-color: lightskyblue;
-  border-radius: 3px;
+  border-radius: 20px;
   color: rgb(255, 255, 255);
   font-family: monospace;
   justify-content: center;
   text-align: center;
-  margin-top: 10px;
-  margin-block-end: 20px;
+  
+  margin-block-end: 3px;
   min-height: 2em;
   width: 8em;
   transition-duration: 0.4s;
   border: 1px solid lightseagreen;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 2em;
 }
 
 .Button:hover {
@@ -86,7 +130,10 @@
 .H1 {
   margin-top: 40px;
   margin-block-end: 20px;
-  font-size: 4em;
+  font-size: 5em;
+  font-family: monospace;
+  font-style: oblique;
+  text-shadow: rgba(250, 245, 170, 0.74) 0.1em 0.1em 0.2em
 }
 
 .Input-App {
@@ -128,3 +175,49 @@
   font-weight: bold;
   
 }
+.upload {
+  background-color: rgb(247, 212, 60);
+  border-radius: 3px;
+  color: rgb(0, 36, 5);
+  font-family: monospace;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-block-end: 20px;
+  min-height: 2em;
+  width: 6em;
+  border: 1px solid lightsalmon;
+  font-size: 15px;
+  font-weight: bold;
+  
+}
+
+.file{
+  background-color: rgb(250, 250, 250);
+  border-radius: 3px;
+  color: rgb(8, 1, 1);
+  font-family: monospace;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-block-end: 20px;
+  min-height: 2em;
+  width: 7.2em;
+  border: 1px solid lightsalmon;
+  font-size: 15px;
+  font-weight: bold;
+  flex-direction: row;
+  display: block;
+  
+}
+
+/* .navbar {
+  
+  font-style: inherit;
+  font-family: fantasy;
+  color: rgb(252, 189, 32);
+  font-size: 20px;
+  font: caption;
+  background-color: rgba(253, 253, 247, 0.425) ;
+
+} */

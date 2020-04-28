@@ -28,7 +28,7 @@ const Login = (props) => {
       .auth()
       .signInWithEmailAndPassword(datauser.email, datauser.password)
       .then(response => {
-        props.history.push("/");
+        props.history.push("/Collects");
       })
       .catch(error => {
         setMessage(error.message)
