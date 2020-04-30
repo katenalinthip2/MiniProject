@@ -7,7 +7,7 @@ const Home = () => {
         <div className='home'>
             <p> Welcome to My Collections</p>
             
-            <Link className='home-button' to='/Collects'> MyCollect </Link>
+            <Link className='home-button' to='/Login'> Get Start </Link>
         </div>
     )
 }

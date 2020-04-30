@@ -9,7 +9,7 @@ const Nav = () => {
             <div className="navbar navbar-expand-lg navbar-light bg-light" >
                 <Link className='nav-link' to='/'> Home </Link>
                 <Link className='nav-link' to='/Collects'> MyCollect </Link>
-                <Link className='nav-link' to='/Login'> Login </Link>
+                <Link className='nav-link' to='/'> Logout </Link>
                 
             </div>
         </div>

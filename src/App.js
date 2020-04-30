@@ -4,7 +4,7 @@ import Nav from './Nav';
 import { firestore } from './index'
 import Collect from './Collect';
 import Uploader from './firebase/uploader'
-import ShowCount from './ShowCount';
+
 // import Count from './Count'
 const App = () => {
   const [collects, setCollects] = useState([
@@ -25,25 +25,19 @@ const App = () => {
       setCollects(myCollect)
     })
   }
-  // const add = () => {
-  //   setCont(count + 1)
-  // }
-  // const minus = () => {
-  //   setCont(count - 1)
-  // }
+
   const renderCollect = () => {
     if (collects && collects.length)
       return collects.map((collect, index) => {
         console.log("im in app", collect.url);
         return (
-          //<div>
+         
             <Collect key={index} collect={collect}
               deleteCollect={deleteCollect}
               editCollect={editCollect}
             />
 
-            // {/* <ShowCount  collect={collect}
-            // /> </div> */}
+           
         )
       })
     else
